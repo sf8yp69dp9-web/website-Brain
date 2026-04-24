@@ -13,6 +13,7 @@ import {
   UI,
   HERO_VIDEO,
   HERO_VIDEO_REMOTE,
+  linkPropsForHref,
 } from "@/lib/content";
 
 function heroVideoSrc(): string {
@@ -79,7 +80,7 @@ export function Hero() {
         </video>
       )}
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/55 via-black/40 to-black/70" />
-      <div className="absolute inset-0 z-[2] bg-[radial-gradient(90%_70%_at_50%_25%,hsl(38_40%_18%/0.25),transparent_60%)]" />
+      <div className="absolute inset-0 z-[2] bg-[radial-gradient(90%_70%_at_50%_25%,hsl(18_45%_22%/0.22),transparent_60%)]" />
       <div className="absolute inset-0 z-[3] noise opacity-35" />
       <div className="absolute bottom-0 inset-x-0 h-[26vh] z-[4] gradient-fade-b" />
 
@@ -132,12 +133,12 @@ export function Hero() {
           className="mt-10 flex flex-col sm:flex-row items-center gap-3"
         >
           <Button variant="hero" asChild>
-            <a href={RESERVE_URL} target="_blank" rel="noopener noreferrer">
+            <a href={RESERVE_URL} {...linkPropsForHref(RESERVE_URL)}>
               {HERO.primary} <ArrowUpRight className="ml-1 size-4" />
             </a>
           </Button>
           <Button variant="heroGlass" asChild>
-            <a href={MENU_URL} target="_blank" rel="noopener noreferrer">
+            <a href={MENU_URL} {...linkPropsForHref(MENU_URL)}>
               <UtensilsCrossed className="mr-1.5 size-4" /> {HERO.secondary}
             </a>
           </Button>

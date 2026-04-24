@@ -4,7 +4,7 @@ import { PROCESS_STEPS, PROCESS_HEADLINE, UI } from "@/lib/content";
 
 export function Process() {
   return (
-    <section id="process" className="relative py-28 md:py-40 border-t border-primary/10 bg-[linear-gradient(180deg,transparent,hsl(28_18%_7%/0.5))]">
+    <section id="process" className="relative py-28 md:py-40 border-t border-primary/10 bg-[linear-gradient(180deg,transparent,hsl(218_22%_8%/0.45))]">
       <div className="max-w-[var(--max)] mx-auto px-[var(--gutter)]">
         <div className="flex flex-col items-start gap-5 mb-16">
           <span className="pill-label">{UI.processKicker}</span>

@@ -5,7 +5,7 @@ import { OPENING_ROWS, OPENING_NOTE, UI } from "@/lib/content";
 
 export function Stats() {
   return (
-    <section id="hours" className="relative py-24 md:py-32 overflow-hidden border-t border-primary/15 bg-[radial-gradient(ellipse_100%_80%_at_50%_0%,hsl(38_25%_12%/0.35),transparent_55%)]">
+    <section id="hours" className="relative py-24 md:py-32 overflow-hidden border-t border-primary/15 bg-[radial-gradient(ellipse_100%_80%_at_50%_0%,hsl(218_26%_12%/0.32),transparent_55%)]">
       <div className="max-w-[var(--max)] mx-auto px-[var(--gutter)] relative z-10">
         <div className="flex flex-col items-center gap-4 text-center mb-12">
           <span className="pill-label">{UI.statsKicker}</span>
@@ -19,7 +19,7 @@ export function Stats() {
           <div className="flex items-center gap-3 mb-8 text-primary">
             <Clock className="size-6 shrink-0" strokeWidth={1.5} />
             <span className="font-ristorante text-2xl md:text-3xl italic text-foreground/90">
-              Küche & Service
+              Öffnungszeiten
             </span>
           </div>
           <ul className="space-y-5 font-body">

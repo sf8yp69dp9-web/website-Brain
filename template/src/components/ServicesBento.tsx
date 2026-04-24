@@ -17,7 +17,7 @@ export function ServicesBento() {
   return (
     <section
       id="services"
-      className="relative py-28 md:py-40 border-t border-primary/10 bg-[radial-gradient(ellipse_90%_60%_at_50%_0%,hsl(38_22%_14%/0.35),transparent_55%)]"
+      className="relative py-28 md:py-40 border-t border-primary/10 bg-[radial-gradient(ellipse_90%_60%_at_50%_0%,hsl(218_24%_14%/0.32),transparent_55%)]"
     >
       <div className="max-w-[var(--max)] mx-auto px-[var(--gutter)]">
         <div className="flex flex-col items-start gap-5 mb-16">

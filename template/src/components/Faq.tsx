@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { FAQ_ITEMS, FAQ_HEADLINE, FAQ_SUB, CTA, UI } from "@/lib/content";
+import { FAQ_ITEMS, FAQ_HEADLINE, FAQ_SUB, CTA, UI, linkPropsForHref } from "@/lib/content";
 
 export function Faq() {
   return (
@@ -22,7 +22,7 @@ export function Faq() {
             {FAQ_SUB}
           </p>
           <Button variant="heroGlass" className="mt-3" asChild>
-            <a href={CTA.href} target="_blank" rel="noopener noreferrer">
+            <a href={CTA.href} {...linkPropsForHref(CTA.href)}>
               {UI.faqCta}
             </a>
           </Button>

@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { MapPin, ExternalLink } from "lucide-react";
 import { BlurText } from "@/components/BlurText";
-import { GOOGLE_PLACE, CONTACT, UI } from "@/lib/content";
+import { GOOGLE_PLACE, CONTACT, UI, BRAND } from "@/lib/content";
 
 export function FindUsMap() {
   return (
@@ -48,7 +48,7 @@ export function FindUsMap() {
             className="ristorante-card rounded-2xl overflow-hidden p-1 md:p-2 shadow-lg shadow-black/30"
           >
             <iframe
-              title="Barist auf der Karte"
+              title={`${BRAND.name} auf der Karte`}
               src={GOOGLE_PLACE.embedUrl}
               className="w-full h-[min(52vh,420px)] rounded-xl border-0 bg-muted"
               loading="lazy"

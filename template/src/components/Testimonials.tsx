@@ -4,7 +4,19 @@ import { TESTIMONIALS, TESTIMONIALS_HEADLINE, UI } from "@/lib/content";
 
 type T = (typeof TESTIMONIALS)[number];
 
+function initialsFromName(name: string): string {
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return "?";
+  if (parts.length === 1) {
+    return parts[0]!.slice(0, 2).toLocaleUpperCase("de-DE");
+  }
+  const a = parts[0]![0]?.toLocaleUpperCase("de-DE") ?? "";
+  const b = parts[parts.length - 1]![0]?.toLocaleUpperCase("de-DE") ?? "";
+  return (a + b).slice(0, 2) || "?";
+}
+
 function Card({ quote, name, role }: T) {
+  const initials = initialsFromName(name);
   return (
     <div className="ristorante-card rounded-2xl p-7 w-[340px] md:w-[400px] shrink-0 flex flex-col gap-5">
       <Quote className="size-5 text-primary/70" />
@@ -12,8 +24,16 @@ function Card({ quote, name, role }: T) {
         {quote}
       </p>
       <div className="mt-auto flex items-center gap-3">
-        <div className="size-9 rounded-full bg-gradient-to-br from-primary/60 to-secondary/60" />
-        <div className="flex flex-col">
+        <div
+          className="size-9 shrink-0 rounded-full bg-gradient-to-br from-primary/70 to-secondary/70 ring-1 ring-inset ring-foreground/10 flex items-center justify-center shadow-inner"
+          title={name}
+          aria-hidden
+        >
+          <span className="font-display text-[11px] font-semibold leading-none tracking-tight text-white/95 drop-shadow-sm">
+            {initials}
+          </span>
+        </div>
+        <div className="flex flex-col min-w-0">
           <span className="font-body font-medium text-sm">{name}</span>
           <span className="font-body text-xs text-foreground/55 uppercase tracking-wide">
             {role}

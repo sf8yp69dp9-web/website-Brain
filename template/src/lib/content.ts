@@ -1,6 +1,6 @@
 /**
- * Zentrale Inhalte — Referenz: Barist (de-DE). Für neue Projekte:
- * WEBSITE-PLANE.md + GOOGLE.url.txt im Projektroot, dann docs/GOOGLE-INGEST.md (Ordner „website Brain“).
+ * Lago di Garda Magdeburg — Inhalte synchron mit https://lagodigardamagdeburg.de/ (WordPress-Startseite).
+ * Google-Zahlen (Bewertung/Anzahl) bei Abweichung in Maps bitte in GOOGLE_PLACE anpassen.
  */
 
 export const LANG = "de-DE";
@@ -9,45 +9,80 @@ export const IS_FR = LANG.startsWith("fr");
 /** Leer lassen oder volle Video-URL (WebM/MP4). Überschreibt lokales `public/hero.webm`. */
 export const HERO_VIDEO_REMOTE = "";
 
+/** Für `http(s)`: neuer Tab; für `tel:` / `mailto:` / Anker: gleicher Tab. */
+export function linkPropsForHref(href: string): {
+  target?: "_blank";
+  rel?: string;
+} {
+  if (href.startsWith("http")) return { target: "_blank", rel: "noopener noreferrer" };
+  return {};
+}
+
 export const UI = {
-  trustedBy: "Aus der Region & aus Italien",
-  servicesKicker: "Speisekarte & Stimmung",
-  whyKicker: "La dolce vita",
-  processKicker: "Ihr Abend bei uns",
+  trustedBy: "Frische Zutaten · italienische Spezialitäten",
+  servicesKicker: "Speisekarte & Genuss",
+  speisekarteKicker: "Menükarte",
+  speisekarteHeadline: "Speisekarte",
+  speisekarteSub:
+    "Alle Kapitel wie auf https://lagodigardamagdeburg.de/speisekarte/ — hier als Bilder eingebunden (Menü-PNGs lokal; Startseiten-Texte an WP angeglichen, Stand Quelle: Sept. 2025).",
+  whyKicker: "Seit 2006 in Magdeburg",
+  processKicker: "Ihr Besuch",
   testimonialsKicker: "Gästestimmen",
   statsKicker: "Öffnungszeiten",
-  statsHeadline: "Wann wir für Sie kochen",
-  faqCta: "Tisch reservieren",
+  statsHeadline: "Wann wir für Sie da sind",
+  faqCta: "Jetzt anrufen",
   mapKicker: "Anfahrt",
-  mapHeadline: "Mitten in Berlin-Mitte",
+  mapHeadline: "Universitätsplatz · Magdeburger Altstadt",
 };
 
 export const BRAND = {
-  name: "Barist",
-  tagline: "Ristorante · Hackescher Markt",
-  logoPath: "/logo.svg",
+  name: "Lago di Garda",
+  tagline: "Italienisches Restaurant Magdeburg",
+  /** Favicon von lagodigardamagdeburg.de (Gabel/Löffel). */
+  logoPath: "/favicon-lago.png",
 };
 
-/** Google Maps / Bewertungen — Zahlen bei Bedarf anpassen, wenn sich der Place aktualisiert. */
+/** Google Maps / Bewertungen — Zahlen bei Bedarf an die aktuelle Place-Karte anpassen. */
 export const GOOGLE_PLACE = {
-  rating: 4.4,
-  reviewCount: 2847,
-  label: "Restaurant am Hackescher Markt",
+  rating: 4.5,
+  reviewCount: 1870,
+  label: "Restaurant am Universitätsplatz",
   description:
-    "Zwischen Museumsinsel, Hackeschen Höfen und Oranienburger Straße — ideal für einen Abend mit Aperitivo, Pasta oder Pizza aus dem Holzofen.",
-  /** Öffnet die Google-Suche zum Lokal (funktioniert ohne Place-ID). */
+    "Mitten in der Altstadt, unweit vom Theater und dem Breiten Weg: italienische Küche mit Buffet und à-la-carte-Karte — seit 2006 für Magdeburg da.",
   reviewsUrl:
-    "https://www.google.com/maps/search/?api=1&query=Barist+Am+Zwirngraben+11+10178+Berlin&hl=de",
+    "https://www.google.com/maps/search/?api=1&query=Lago+di+Garda+Universitätsplatz+10+39104+Magdeburg&hl=de",
   directionsUrl:
-    "https://www.google.com/maps/dir/?api=1&destination=Am+Zwirngraben+11,+10178+Berlin&hl=de",
+    "https://www.google.com/maps/dir/?api=1&destination=Universitätsplatz+10,+39104+Magdeburg&hl=de",
   embedUrl:
-    "https://maps.google.com/maps?q=Barist+Restaurant+Am+Zwirngraben+11,+10178+Berlin,+Deutschland&hl=de&z=16&ie=UTF8&iwloc=B&output=embed",
+    "https://maps.google.com/maps?q=Universitätsplatz%2010%2C%2039104%20Magdeburg&t=m&z=13&output=embed&iwloc=near",
 };
 
-export const RESERVE_URL =
-  "https://www.quandoo.de/checkout-widget/widget?agentId=2&merchantId=39204&primaryColor=d8b892&theme=dark&widgetType=calendar&utm_source=barist-website&utm_medium=widget-link-home";
+export const RESERVE_URL = "tel:+493915639658";
 
-export const MENU_URL = "https://barist.de/speisekarte/";
+/** In-page Speisekarte (Bildergalerie unter `#speisekarte`). */
+export const MENU_URL = "#speisekarte";
+
+/** Original-WordPress-Seite (extern). */
+export const MENU_EXTERNAL_URL = "https://lagodigardamagdeburg.de/speisekarte/";
+
+/** 15 Menü-Seiten als PNG (724×1024) aus dem offiziellen WordPress-Upload. */
+export const SPEISEKARTE_PAGES: { src: string; alt: string }[] = [
+  { src: "/speisekarte/01-Lago-di-Garda-1-724x1024.png", alt: "Speisekarte — Titelseite" },
+  { src: "/speisekarte/02-Aperitifs-1-724x1024.png", alt: "Aperitifs" },
+  { src: "/speisekarte/03-Vorspeisen-1-724x1024.png", alt: "Vorspeisen" },
+  { src: "/speisekarte/04-Insalate-1-724x1024.png", alt: "Insalate" },
+  { src: "/speisekarte/05-Pizza-1-724x1024.png", alt: "Pizza" },
+  { src: "/speisekarte/06-Pasta-1-724x1024.png", alt: "Pasta" },
+  { src: "/speisekarte/07-Carne-di-Maiale-1-724x1024.png", alt: "Carne di Maiale" },
+  { src: "/speisekarte/08-Carne-di-Manzo-1-724x1024.png", alt: "Carne di Manzo" },
+  { src: "/speisekarte/09-Dolce-1-724x1024.png", alt: "Dolce" },
+  { src: "/speisekarte/10-Offener-Wein-1-724x1024.png", alt: "Offener Wein" },
+  { src: "/speisekarte/11-Italienische-Flaschenweine-1-724x1024.png", alt: "Italienische Flaschenweine" },
+  { src: "/speisekarte/12-Heisse-Getraenke-1-724x1024.png", alt: "Heiße Getränke" },
+  { src: "/speisekarte/13-Spirituosen-1-724x1024.png", alt: "Spirituosen" },
+  { src: "/speisekarte/14-Cocktails-1-724x1024.png", alt: "Cocktails" },
+  { src: "/speisekarte/15-Allergene-1-724x1024.png", alt: "Allergene" },
+];
 
 export const HERO_VIDEO: {
   srcWebm: string;
@@ -55,14 +90,15 @@ export const HERO_VIDEO: {
   poster?: string;
 } = {
   srcWebm: "/hero.webm",
-  /** H.264 für Safari / iOS (WebM allein reicht dort oft nicht). */
   srcMp4: "/hero.mp4",
-  poster: "/hero-poster.webp",
+  /** Motiv wie WP-Startseite (Hero-Hintergrund xxx-scaled). */
+  poster: "/hero-poster-lago.jpg",
 };
 
 export const NAV_ITEMS: { label: string; href: string }[] = [
-  { label: "Speisekarte", href: "#services" },
-  { label: "Stimmung", href: "#why" },
+  { label: "Angebot", href: "#services" },
+  { label: "Speisekarte", href: "#speisekarte" },
+  { label: "Warum wir", href: "#why" },
   { label: "Ablauf", href: "#process" },
   { label: "Zeiten", href: "#hours" },
   { label: "Gäste", href: "#testimonials" },
@@ -76,20 +112,20 @@ export const CTA = {
 };
 
 export const HERO = {
-  badge: "Hackescher Markt · Berlin-Mitte",
-  headline: "Italienischer Genuss",
-  headlineLine2: "im Herzen Berlins",
+  badge: "Italienisches Restaurant",
+  headline: "Lago di Garda",
+  headlineLine2: "Magdeburg",
   sub:
-    "Holzofen, gedämpftes Licht, der Duft von Kräutern und frischem Teig — hier trifft italienische Küche auf die Seele der Stadt. Kommen Sie vorbei: ein Glas Wein, ein Teller Pasta, und der Abend gehört Ihnen.",
+    "Dienstag bis Sonntag von 11:00 Uhr bis 0:00 Uhr für Sie geöffnet. Seit 2006 füllen wir mit unserem köstlichen Angebot Magdeburgs Bäuche — frische Zutaten, sorgfältig ausgesucht, mit reichhaltigem Buffet und à la carte.",
   primary: "Tisch reservieren",
-  secondary: "Zur Speisekarte",
+  secondary: "Zu unserem Menü",
 };
 
 export const PARTNERS: string[] = [
-  "Pizza al forno",
-  "Pasta fatta in casa",
-  "Vini italiani",
-  "Cocktail & Aperitivo",
+  "Reichhaltiges Buffet",
+  "À la carte",
+  "Pizza & Pasta",
+  "Kaffee & Wein",
 ];
 
 export type IconName =
@@ -100,7 +136,7 @@ export type IconName =
   | "Clock"
   | "Heart";
 
-export const SERVICES_HEADLINE = "Was Sie bei uns erwarten dürfen";
+export const SERVICES_HEADLINE = "Was Sie bei uns erwartet";
 
 export const SERVICES: {
   icon: IconName;
@@ -109,178 +145,194 @@ export const SERVICES: {
   image: string;
 }[] = [
   {
-    icon: "Flame",
-    title: "Holzofen & Pizza",
-    body: "Knuspriger Boden, sanftes Raucharoma — so, wie Pizza in Neapel gemeint ist.",
-    image:
-      "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=900&q=75",
+    icon: "UtensilsCrossed",
+    title: "À la carte",
+    body: "Exzellent, einzigartig, genau nach Ihrem Anspruch — erleben Sie unser kulinarisches Niveau und wählen Sie frei Speisen und Getränke anhand unserer Menükarte.",
+    image: "https://lagodigardamagdeburg.de/wp-content/uploads/2021/09/11-scaled.jpg",
   },
   {
-    icon: "UtensilsCrossed",
-    title: "Pasta & Antipasti",
-    body: "Frische Saucen, bestes Olivenöl, ehrliche Portionen zum Teilen oder für sich allein.",
-    image:
-      "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=900&q=75",
+    icon: "Flame",
+    title: "Unschlagbares Buffet",
+    body: "Suchen Sie sich bei unserem reichhaltigen Buffet Ihre persönlichen Favoriten aus und lassen Sie sich von unseren vielfältigen Zutaten begeistern.",
+    image: "https://lagodigardamagdeburg.de/wp-content/uploads/2021/09/2-scaled.jpg",
+  },
+  {
+    icon: "Heart",
+    title: "Frisch & mit Liebe",
+    body: "Seit 2006 köstliches Essen aus frischen Zutaten, sorgfältig ausgesucht — damit Qualität und Geschmack dauerhaft stimmen.",
+    image: "https://lagodigardamagdeburg.de/wp-content/uploads/2021/09/3-scaled.jpg",
   },
   {
     icon: "Wine",
-    title: "Wein & Bar",
-    body: "Vom Hauswein bis zur Flasche Barolo — und dazu ein Negroni, der sitzt.",
-    image:
-      "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=900&q=75",
+    title: "Frischer Genuss",
+    body: "Nach dem Essen bleiben Sie in unserem Ambiente: frisch gerösteter Kaffee oder der Wein Ihres Begehrens — fragen Sie unser Personal.",
+    image: "https://lagodigardamagdeburg.de/wp-content/uploads/2021/09/6-1024x645.jpg",
   },
   {
     icon: "MapPin",
     title: "Die Lage",
-    body: "Zwischen Hackeschen Höfen und Museumsinsel — perfekt vor dem Theater oder der Galerie.",
-    image:
-      "https://images.unsplash.com/photo-1560969184-10fb871307e9?auto=format&fit=crop&w=900&q=75",
+    body: "Universitätsplatz 10 — zentral in der Altstadt, nah an Universität, Geschäftsmeile und Theater.",
+    image: "https://lagodigardamagdeburg.de/wp-content/uploads/2021/09/4-scaled.jpg",
   },
   {
     icon: "Clock",
-    title: "Service",
-    body: "Herzlich, aufmerksam, mit Berliner Tempo — auch wenn alle Tische besetzt sind.",
-    image:
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=75",
-  },
-  {
-    icon: "Heart",
-    title: "Ambiente",
-    body: "Kerzenlicht, warme Wände, leise Musik — ein Ort für Dates, Familie und alte Freunde.",
-    image:
-      "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=75",
+    title: "Öffnungszeiten",
+    body: "Dienstag bis Sonntag von 11:00 Uhr bis 0:00 Uhr — spontan ist oft möglich, zu Stoßzeiten lohnt sich ein kurzer Anruf.",
+    image: "https://lagodigardamagdeburg.de/wp-content/uploads/2021/09/22-scaled.jpg",
   },
 ];
 
 export const REASONS_HEADLINE = "Warum Gäste wiederkommen";
 
-export const REASONS_SUB = "Kurz gesagt: ehrliches Essen, echte Atmosphäre, mitten im schönsten Berlin.";
+export const REASONS_SUB =
+  "Ehrliche Küche, große Portionen und ein Team, das auch in vollem Haus freundlich bleibt.";
 
 export const REASONS: { icon: IconName; title: string; body: string }[] = [
   {
     icon: "Heart",
     title: "Gastfreundschaft",
-    body: "Bei uns ist jeder willkommen — ob Berliner Stammgast oder Besuch aus der Ferne.",
-  },
-  {
-    icon: "Clock",
-    title: "Berliner Puls",
-    body: "Draußen die Stadt, drinnen ein Innehalten — und trotzdem kein steifer Salon.",
-  },
-  {
-    icon: "Wine",
-    title: "Zum Anstoßen",
-    body: "Aperitivo an der Bar, Wein zum Gang, Digestif zum Ausklang — wie in Italien üblich.",
+    body: "Freundliches Personal und gute Laune — genau das, was unsere Gäste an uns schätzen.",
   },
   {
     icon: "Flame",
-    title: "Aus dem Ofen",
-    body: "Was aus dem Feuer kommt, schmeckt man — und riecht man schon beim Reinkommen.",
+    title: "Geschmack & Qualität",
+    body: "Pizza, Pasta, Lasagne und mehr: schön angerichtet, großzügig portioniert, immer frisch.",
+  },
+  {
+    icon: "Wine",
+    title: "Rundum satt werden",
+    body: "Umfangreiche Karte, Buffet und Getränke — für Familien, Studierende und Feierabend gleichermaßen.",
+  },
+  {
+    icon: "MapPin",
+    title: "Ambiente & Lage",
+    body: "Gemütliche Inneneinrichtung mitten in Magdeburg — ideal vor oder nach dem Stadtbummel.",
   },
 ];
 
-export const PROCESS_HEADLINE = "So läuft Ihr Abend";
+export const PROCESS_HEADLINE = "So läuft Ihr Besuch";
 
 export const PROCESS_STEPS: { n: string; title: string; body: string }[] = [
   {
     n: "1",
     title: "Tisch sichern",
-    body: "Online reservieren oder anrufen — abends besonders empfohlen.",
+    body: "Rufen Sie uns an oder kommen Sie spontan vorbei — besonders abends lohnt sich ein kurzer Anruf.",
   },
   {
     n: "2",
-    title: "Ankommen & anstoßen",
-    body: "Wir bringen Sie zu Ihrem Platz, Wasser und Brot stehen bereit, der Aperitivo wartet.",
+    title: "Buffet oder Karte",
+    body: "Wählen Sie vom Buffet oder bestellen Sie à la carte — wie es Ihnen beliebt.",
   },
   {
     n: "3",
     title: "Genießen",
-    body: "Von der Vorspeise bis zum Dolce — in Ihrem Tempo, mit unseren Empfehlungen.",
+    body: "Lehnen Sie sich zurück: frische Gerichte, entspannte Atmosphäre, Zeit zum Plaudern.",
   },
   {
     n: "4",
-    title: "Noch ein Glas?",
-    body: "Espresso, Grappa oder ein letzter Spritz — der Abend endet, wenn Sie es sagen.",
+    title: "Ausklang",
+    body: "Kaffee oder ein Glas Wein — genießen Sie den Abend, solange Sie möchten (bis 0:00 Uhr).",
   },
 ];
 
 export const OPENING_ROWS: { days: string; hours: string }[] = [
-  { days: "Montag – Donnerstag", hours: "12:00 – 24:00 Uhr" },
-  { days: "Freitag – Samstag", hours: "12:00 – 01:00 Uhr" },
-  { days: "Sonntag", hours: "12:00 – 24:00 Uhr" },
+  { days: "Montag", hours: "Ruhetag" },
+  { days: "Dienstag – Sonntag", hours: "11:00 – 0:00 Uhr" },
 ];
 
 export const OPENING_NOTE =
-  "Küche durchgehend warm — bei schönem Wetter zusätzlich Sitzplätze draußen (je nach Saison).";
+  "Weitere Vereinbarungen nach Absprache möglich — fragen Sie unser Personal.";
 
-export const TESTIMONIALS_HEADLINE = "Was Google-Gäste sagen";
+export const TESTIMONIALS_HEADLINE = "Überzeugen Sie sich selbst";
 
+/**
+ * Zitate aus öffentlichen Google-Maps-Rezensionen (Name + Text wie dort abrufbar).
+ * Stand: Abruf April 2026 — bei Änderungen in Maps bitte hier und optional die Jahreszahl anpassen.
+ */
 export const TESTIMONIALS: { quote: string; name: string; role: string }[] = [
   {
     quote:
-      "Pizza und Pasta sind zu empfehlen. Auch die Steaks waren bisher immer super. Großer Außenbereich ist vorhanden. Der Service ist auf Zack und gibt wirklich sein Bestes.",
-    name: "Thorsten Dreistein",
-    role: "Google Bewertung",
+      "Klasse Mittagsangebot, absolut empfehlenswert, da nicht nur günstig sondern auch lecker. Sowohl die Pizzen als auch die Pastagerichte schmecken authentisch italienisch.",
+    name: "Emma Jack",
+    role: "Google-Rezension",
   },
   {
     quote:
-      "Salat und Pizza top. Preis-Leistung ist angemessen für die Gegend. Gerne wieder. Uns allen hat es super gut gefallen, das Essen war lecker, ebenso die Getränke.",
-    name: "Carolyn Silverpine",
-    role: "Google Bewertung",
+      "Das Essen war sehr lecker. Obwohl das Restaurant sehr sehr voll war, lag die Wartezeit auf das Essen bei unter 30 min. Kellner waren trotz Stress sehr umsichtig und nett. Mein Fazit, bester Italiener in Magdeburg, ist nur weiter zu empfehlen",
+    name: "Chris Bosse",
+    role: "Google-Rezension",
   },
   {
     quote:
-      "Sehr nette Bedienung, tolles Essen und super Cocktails. Die Preise hier sind sehr akzeptabel, da man hier auch was für sein Geld bekommt. Ich kann das Barist nur empfehlen.",
-    name: "Marlies Dohr",
-    role: "Google Bewertung",
+      "Sehr gute Küche, Speisen gut abgeschmeckt und wirklich fein in der Würze. Kann man empfehlen.",
+    name: "Anke Körber",
+    role: "Google-Rezension",
+  },
+  {
+    quote:
+      "Sehr nettes Personal, tolles Lokal und wirklich leckeres Essen. Der Mittagstisch ist auch immer wieder zu empfehlen.",
+    name: "Robert Engel",
+    role: "Google-Rezension",
+  },
+  {
+    quote:
+      "Sehr lecker, Preis Leistung waren sehr gut. Personal sehr freundlich und nett. Bis zum nächsten mal.",
+    name: "Maik Eberling",
+    role: "Google-Rezension",
   },
 ];
 
 export const FAQ_HEADLINE = "Häufige Fragen";
 
-export const FAQ_SUB = "Wenn Ihre Frage nicht dabei ist, rufen Sie uns an — wir beraten Sie gern.";
+export const FAQ_SUB =
+  "Wenn Ihre Frage nicht dabei ist, erreichen Sie uns telefonisch oder per E-Mail — wir helfen gern.";
 
 export const FAQ_ITEMS: { q: string; a: string }[] = [
   {
     q: "Brauche ich eine Reservierung?",
-    a: "Mittags oft spontan möglich. Abends und am Wochenende empfehlen wir eine Reservierung — am schnellsten über den Link auf dieser Seite.",
+    a: "Spontane Plätze sind oft möglich — zu Stoßzeiten und am Wochenende empfehlen wir einen kurzen Anruf unter 0391 5639658.",
   },
   {
     q: "Wo liegt das Restaurant?",
-    a: "Am Zwirngraben 11–12, 10178 Berlin, direkt am Hackescher Markt. Routenplaner finden Sie weiter unten auf der Karte.",
+    a: "Universitätsplatz 10, 39104 Magdeburg — in der Altstadt, gut erreichbar zu Fuß und mit öffentlichen Verkehrsmitteln. Den Routenplaner finden Sie weiter unten auf der Karte.",
   },
   {
     q: "Gibt es die Speisekarte online?",
-    a: "Ja — unter „Zur Speisekarte“ öffnet sich unsere aktuelle Karte.",
+    a: "Ja — weiter unten auf dieser Seite finden Sie alle Kapitel der Speisekarte als Bilder. Alternativ: https://lagodigardamagdeburg.de/speisekarte/",
   },
   {
-    q: "Ist das Restaurant für Feiern geeignet?",
-    a: "Für kleinere Runden und besondere Abende sehr gut — sprechen Sie uns für größere Gruppen am besten direkt an.",
+    q: "Wann haben Sie geöffnet?",
+    a: "Dienstag bis Sonntag von 11:00 bis 0:00 Uhr. Montags haben wir Ruhetag — weitere Vereinbarungen sind nach Absprache möglich.",
   },
   {
-    q: "Telefonisch erreichbar?",
-    a: "Unter +49 (0)30 24722613 — wir helfen bei Tischwünschen und Fragen zum Lokal.",
+    q: "Wie erreiche ich Sie telefonisch oder per Mail?",
+    a: "Telefon: 0391 5639658. E-Mail: info@lagodigardamagdeburg.de",
   },
 ];
 
 export const CTA_SECTION = {
-  headline: "Buon appetito in Berlin",
-  sub: "Wir freuen uns darauf, Sie mit italienischer Herzlichkeit zu bewirten — buchen Sie Ihren Tisch und kommen Sie vorbei.",
-  secondary: "Speisekarte öffnen",
+  headline: "Wir freuen uns auf Ihren Besuch!",
+  sub: "Italienische Spezialitäten, Buffet und à la carte — kommen Sie vorbei und überzeugen Sie sich selbst.",
+  secondary: "Zu unserem Menü",
 };
 
 export const FOOTER_LINKS: { label: string; href: string }[] = [
+  { label: "lagodigardamagdeburg.de", href: "https://lagodigardamagdeburg.de/" },
   { label: "Speisekarte", href: MENU_URL },
-  { label: "Reservierung", href: RESERVE_URL },
+  { label: "Anrufen", href: RESERVE_URL },
   { label: "Google & Karte", href: "#lage" },
   { label: "Kontakt", href: "#kontakt" },
+  { label: "Impressum", href: "https://lagodigardamagdeburg.de/impressum/" },
+  { label: "Datenschutz", href: "https://lagodigardamagdeburg.de/privacy-policy/" },
 ];
 
-export const COPYRIGHT = `© ${new Date().getFullYear()} ${BRAND.name} · Am Zwirngraben 11–12, Berlin`;
+export const COPYRIGHT = `© ${new Date().getFullYear()} ${BRAND.name} · Universitätsplatz 10, 39104 Magdeburg`;
 
 export const CONTACT = {
-  street: "Am Zwirngraben 11–12",
-  zip: "10178 Berlin",
-  phone: "+49 (0)30 24722613",
-  phoneHref: "tel:+493024722613",
+  street: "Universitätsplatz 10",
+  zip: "39104 Magdeburg",
+  phone: "0391 5639658",
+  phoneHref: "tel:+493915639658",
+  email: "info@lagodigardamagdeburg.de",
+  emailHref: "mailto:info@lagodigardamagdeburg.de",
 };

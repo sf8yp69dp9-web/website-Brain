@@ -3,7 +3,7 @@ import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GoogleRatingBadge } from "@/components/GoogleRating";
-import { BRAND, NAV_ITEMS, CTA } from "@/lib/content";
+import { BRAND, NAV_ITEMS, CTA, linkPropsForHref } from "@/lib/content";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -39,7 +39,7 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-2 shrink-0">
             <GoogleRatingBadge className="hidden xl:inline-flex" />
             <Button variant="heroSolid" size="sm" className="rounded-full px-4 py-1.5 text-sm" asChild>
-              <a href={CTA.href} target="_blank" rel="noopener noreferrer">
+              <a href={CTA.href} {...linkPropsForHref(CTA.href)}>
                 {CTA.label} <ArrowUpRight className="ml-1 size-4" />
               </a>
             </Button>
@@ -95,7 +95,7 @@ export function Navbar() {
           <div className="mt-auto p-6 space-y-4">
             <GoogleRatingBadge className="w-full justify-center py-2" />
             <Button variant="hero" asChild className="w-full">
-              <a href={CTA.href} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
+              <a href={CTA.href} {...linkPropsForHref(CTA.href)} onClick={() => setOpen(false)}>
                 {CTA.label} <ArrowUpRight className="ml-1 size-4" />
               </a>
             </Button>

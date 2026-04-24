@@ -9,6 +9,7 @@ import {
   COPYRIGHT,
   CONTACT,
   MENU_URL,
+  linkPropsForHref,
 } from "@/lib/content";
 
 export function CtaFooter() {
@@ -45,12 +46,12 @@ export function CtaFooter() {
           className="mt-10 flex items-center gap-3 flex-wrap justify-center"
         >
           <Button variant="hero" asChild>
-            <a href={CTA.href} target="_blank" rel="noopener noreferrer">
+            <a href={CTA.href} {...linkPropsForHref(CTA.href)}>
               {CTA.label} <ArrowUpRight className="ml-1 size-4" />
             </a>
           </Button>
           <Button variant="heroGlass" asChild>
-            <a href={MENU_URL} target="_blank" rel="noopener noreferrer">
+            <a href={MENU_URL} {...linkPropsForHref(MENU_URL)}>
               {CTA_SECTION.secondary}
             </a>
           </Button>
@@ -73,6 +74,12 @@ export function CtaFooter() {
           >
             {CONTACT.phone}
           </a>
+          <a
+            href={CONTACT.emailHref}
+            className="block mt-2 font-body text-primary hover:text-primary/90 transition-colors"
+          >
+            {CONTACT.email}
+          </a>
         </div>
       </div>
 
@@ -84,10 +91,9 @@ export function CtaFooter() {
           <nav className="flex items-center gap-6 flex-wrap justify-center">
             {FOOTER_LINKS.map((l) => (
               <a
-                key={l.href}
+                key={l.label + l.href}
                 href={l.href}
-                target={l.href.startsWith("http") ? "_blank" : undefined}
-                rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                {...linkPropsForHref(l.href)}
                 className="font-body text-xs text-foreground/50 hover:text-foreground/80 transition-colors"
               >
                 {l.label}

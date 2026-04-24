@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { ServicesBento } from "@/components/ServicesBento";
+import { SpeisekarteGallery } from "@/components/SpeisekarteGallery";
 import { Pourquoi } from "@/components/Pourquoi";
 import { Process } from "@/components/Process";
 import { Stats } from "@/components/Stats";
@@ -16,6 +17,7 @@ export default function App() {
       <main>
         <Hero />
         <ServicesBento />
+        <SpeisekarteGallery />
         <Pourquoi />
         <Process />
         <Stats />
