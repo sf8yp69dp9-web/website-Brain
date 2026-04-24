@@ -1,10 +1,10 @@
 # Website Brain — Agent-Anweisungen
 
-Wenn der Workspace **„website Brain“** oder ein daraus klonter **Vite-Ordner** (`template/`-Kopie) aktiv ist, gilt Folgendes.
+Wenn der Workspace **„Website Brain ultra“** (dieses Repo) oder ein daraus abgeleitetes **Vite-Projekt** aktiv ist, gilt Folgendes. Die **Vite-App liegt im Repository-Root** (`package.json`, `src/`, `public/`) — nicht in einem Unterordner `template/`.
 
 ## Standard-Modus (Default)
 
-Das Template ist eine **einseitige Premium-Landing** mit:
+Die Site ist eine **einseitige Premium-Landing** mit:
 
 - **Video-Hero** (`Hero.tsx`): `HERO_VIDEO` in `src/lib/content.ts` — lokal `public/hero.webm` + **`public/hero.mp4` (H.264)** für Safari/iOS; optional `VITE_HERO_VIDEO_URL` in `.env`.
 - **Google / Maps**: `GOOGLE_PLACE` in `content.ts` + Komponenten `GoogleRating.tsx`, `FindUsMap.tsx`.
@@ -19,7 +19,7 @@ Das Template ist eine **einseitige Premium-Landing** mit:
 
 ## Alternativ-Modus: Scroll-Scrub (Canvas-Frames)
 
-Der ursprüngliche **AirPods-Style** mit Canvas und `public/frames/` ist weiterhin in **`prompt.md`** und **`docs/MODE-CINEMATIC-SCRUB.md`** beschrieben. Scripts: `scripts/extract-frames.sh` / `extract-frames.mjs`. Das aktuelle Default-`template/` nutzt **keinen** Frame-Scrub im Hero (Video statt Canvas).
+Der ursprüngliche **AirPods-Style** mit Canvas und `public/frames/` ist weiterhin in **`prompt.md`** und **`docs/MODE-CINEMATIC-SCRUB.md`** beschrieben. Scripts: `scripts/extract-frames.sh` / `extract-frames.mjs`. Der **Default-Hero** nutzt **keinen** Frame-Scrub (Video statt Canvas).
 
 ## Was nicht tun
 
@@ -30,7 +30,7 @@ Der ursprüngliche **AirPods-Style** mit Canvas und `public/frames/` ist weiterh
 
 | Zweck | Pfad |
 |--------|------|
-| Inhalte & Google | `template/src/lib/content.ts` |
-| Hero-Video | `template/src/components/Hero.tsx` |
-| Meta / Preload | `template/index.html` |
-| Design-Tokens | `template/src/index.css` |
+| Inhalte & Google | `src/lib/content.ts` |
+| Hero-Video | `src/components/Hero.tsx` |
+| Meta / Preload | `index.html` |
+| Design-Tokens | `src/index.css` |

@@ -1,6 +1,6 @@
 # Modus: Cinematic Scroll-Scrub (Canvas + Frames)
 
-Der **Default** im aktuellen `template/` ist ein **Video-Hero** (WebM + MP4) plus Google-Block — siehe [FAST-TRACK.md](FAST-TRACK.md).
+Der **Default** in diesem Repo ist ein **Video-Hero** (WebM + MP4) plus Google-Block — siehe [FAST-TRACK.md](FAST-TRACK.md).
 
 Dieses Dokument beschreibt den **älteren alternativen Modus**: Hero als **Canvas**, Bildfolge aus `public/frames/`, gesteuert über Scroll (AirPods-Pro-Stil).
 
@@ -16,7 +16,7 @@ Dieses Dokument beschreibt den **älteren alternativen Modus**: Hero als **Canva
    - `bash scripts/extract-frames.sh 30 jpg` (Pfad ggf. anpassen), **oder**
    - `node scripts/extract-frames.mjs` (WASM-Variante, siehe Script-Kopf).
 3. Ausgabe nach `public/frames/frame_0001.jpg` … (oder `.webp`).
-4. **`Hero.tsx`** so umbauen, dass statt `<video>` die `ScrubSequence` mit passendem `scrollTargetRef` und `frameCount` gerendert wird (Referenz: frühere `template`-Versionen oder `prompt.md` Sektion Hero).
+4. **`Hero.tsx`** so umbauen, dass statt `<video>` die `ScrubSequence` mit passendem `scrollTargetRef` und `frameCount` gerendert wird (Referenz: ältere Brain-Versionen oder `prompt.md` Sektion Hero).
 5. **`index.html`**: Preload auf **erstes Frame** statt Video-Poster.
 
 ## Wann welcher Modus?

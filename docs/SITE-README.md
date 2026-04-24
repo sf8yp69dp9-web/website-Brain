@@ -28,7 +28,7 @@ Lege ab (oder ersetze die mitgelieferten Beispiele):
 - `public/hero.mp4` — **H.264**, `yuv420p`, `+faststart` (Pflicht für iOS)
 - `public/hero-poster.webp` — Standbild
 
-Im Brain-Repo: `../scripts/encode-hero.ps1 -Source pfad\quelle.mp4`
+Im Repo-Root: `scripts/encode-hero.ps1 -Source pfad\quelle.mp4` (von hier aus: `../scripts/encode-hero.ps1`).
 
 Optional `.env`:
 
@@ -39,17 +39,17 @@ Optional `.env`:
 
 ## Google Maps
 
-`GOOGLE_PLACE` in `content.ts`: `rating`, `reviewCount`, `label`, `description`, `reviewsUrl`, `directionsUrl`, `embedUrl`. Anleitung zum Ableiten aus der Browser-Maps-Seite: **`../docs/GOOGLE-INGEST.md`** (im übergeordneten „website Brain“-Ordner).
+`GOOGLE_PLACE` in `content.ts`: `rating`, `reviewCount`, `label`, `description`, `reviewsUrl`, `directionsUrl`, `embedUrl`. Anleitung zum Ableiten aus der Browser-Maps-Seite: **[GOOGLE-INGEST.md](GOOGLE-INGEST.md)**.
 
 ## Projektstart mit Plane + Google-URL
 
-1. Kopiere aus dem Brain-Ordner `inputs/WEBSITE-PLANE.template.md` → **`WEBSITE-PLANE.md`** hier ins Root.
+1. Kopiere aus `inputs/WEBSITE-PLANE.template.md` → **`WEBSITE-PLANE.md`** ins Repository-Root.
 2. **`GOOGLE.url.txt`** — eine Zeile Maps-URL.
-3. Cursor / Agent: `AGENTS.md` und `docs/GOOGLE-INGEST.md` aus dem Brain lesen und `content.ts` befüllen.
+3. Cursor / Agent: Root-**`AGENTS.md`** und **`docs/GOOGLE-INGEST.md`** lesen und `content.ts` befüllen.
 
 ## Optional: Cinematic Frame-Scrub
 
-Komponente `ScrubSequence.tsx` ist enthalten; der **aktuelle** `Hero` nutzt sie nicht. Umbau und Frames: **`../docs/MODE-CINEMATIC-SCRUB.md`** + `../prompt.md`.
+Komponente `ScrubSequence.tsx` ist enthalten; der **aktuelle** `Hero` nutzt sie nicht. Umbau und Frames: **[MODE-CINEMATIC-SCRUB.md](MODE-CINEMATIC-SCRUB.md)** + **`../prompt.md`**.
 
 ## Build
 
@@ -58,4 +58,4 @@ npm run build
 npm run preview
 ```
 
-Checkliste: `../docs/CHECKLIST.md` (Abschnitt Default).
+Checkliste: [CHECKLIST.md](CHECKLIST.md) (Abschnitt Default).

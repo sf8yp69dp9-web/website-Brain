@@ -71,4 +71,4 @@ Je Karte: **Titel**, **Text**
 
 ---
 
-**Mapping:** Die meisten Felder landen in `template/src/lib/content.ts` (`BRAND`, `HERO`, `NAV_ITEMS`, `SERVICES`, …). Meta-Titel und Description in `template/index.html`.
+**Mapping:** Die meisten Felder landen in `src/lib/content.ts` (`BRAND`, `HERO`, `NAV_ITEMS`, `SERVICES`, …). Meta-Titel und Description in `index.html`.

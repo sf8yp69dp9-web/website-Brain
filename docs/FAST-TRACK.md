@@ -1,6 +1,6 @@
 # Fast-Track — neues Projekt in wenigen Schritten
 
-Voraussetzung: Ordner **`website Brain/template`** wurde in den neuen Projektordner kopiert und `npm install` ist durch.
+Voraussetzung: Repository geklont bzw. Workspace geöffnet und **`npm install`** im **Projektroot** (dort liegt `package.json`) ausgeführt.
 
 ## Schritt A — Plane & Google (2 Dateien)
 

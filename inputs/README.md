@@ -1,6 +1,6 @@
 # inputs — pro Projekt befüllen
 
-Hier liegen **Vorlagen**, die du in jedes neue Site-Projekt legst (neben oder oberhalb von `template/`-Kopie).
+Hier liegen **Vorlagen**, die du bei einem **neuen, separaten** Site-Projekt ins jeweilige Projektroot legst (dort wo auch `package.json` liegt).
 
 ## Dateien
 

@@ -20,3 +20,9 @@ lerna-debug.log*
 *.tsbuildinfo
 vite.config.d.ts
 vite.config.js
+
+# Vercel
+.vercel
+
+# Nach Migration: verbleibender alter Ordner (lokal löschen, wenn keine Locks)
+template/

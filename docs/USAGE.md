@@ -3,18 +3,20 @@
 ## Modus wählen
 
 - **A — Default (Video + Google):** dieser Ablauf, Abschnitte 1–6.
-- **B — Cinematic Scrub (Canvas + Frames):** [MODE-CINEMATIC-SCRUB.md](MODE-CINEMATIC-SCRUB.md) und `prompt.md`; `Hero` muss auf `ScrubSequence` umgestellt werden (nicht Teil des aktuellen Default-Templates).
+- **B — Cinematic Scrub (Canvas + Frames):** [MODE-CINEMATIC-SCRUB.md](MODE-CINEMATIC-SCRUB.md) und `prompt.md`; `Hero` muss auf `ScrubSequence` umgestellt werden (nicht Teil des aktuellen Default-Stacks).
 
 ---
 
 ## A1. Projekt anlegen
 
-Kopiere `website Brain/template` in deinen Zielordner, dann:
+**In diesem Repo:** Vite-App und `package.json` liegen im **Repository-Root**. Einfach klonen oder öffnen, dann:
 
 ```bash
-cd pfad/zum/projekt
+cd pfad/zum/repo
 npm install
 ```
+
+**Separates Kundenrepo:** Ordner `src/`, `public/`, Konfigurationsdateien und `package.json` aus diesem Root in den Zielordner übernehmen (oder dieses Repo als Vorlage duplizieren) und `npm install` ausführen.
 
 ## A2. Plane & Google (empfohlen)
 
